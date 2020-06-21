@@ -1,0 +1,38 @@
+/**************************
+ ***** General Styles *****
+ **************************/
+@font-face {
+    font-family: yekan;
+    src: url('../fonts/Yekan.woff') format('woff')
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: yekan;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    direction: rtl;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+/**************************
+ ***** Body Styles *****
+ **************************/
