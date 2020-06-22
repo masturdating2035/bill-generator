@@ -34,5 +34,33 @@ li {
 
 
 /**************************
+ ***** Header Styles *****
+ **************************/
+.wrapper {
+    width: 60.3rem;
+    height: 94.4rem;
+    border: .5rem solid rgba(241, 196, 15, 0.5);
+    border-radius: 3rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+}
+
+.wrapper header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/**************************
  ***** Body Styles *****
  **************************/
+ .items .foods{
+     display: flex;
+     align-items: flex-end;
+     justify-content: space-between;
+ }
+
+ .items .foods .foods-info{
+     display: flex;
+ }
