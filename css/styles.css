@@ -37,8 +37,8 @@ li {
  ***** Header Styles *****
  **************************/
 .wrapper {
-    width: 60.3rem;
-    height: 94.4rem;
+    width: 60rem;
+    height: 80rem;
     border: .5rem solid rgba(241, 196, 15, 0.5);
     border-radius: 3rem;
     margin-top: 3rem;
@@ -49,18 +49,95 @@ li {
     font-size: 2.2rem;
     font-weight: bold;
     text-align: center;
+    border-bottom: 1px solid #eee;
 }
 
 
 /**************************
  ***** Body Styles *****
  **************************/
- .items .foods{
-     display: flex;
-     align-items: flex-end;
-     justify-content: space-between;
- }
+.items {
+    width: 100%;
+    height: 80vh;
+    overflow-y: scroll;
+}
 
- .items .foods .foods-info{
-     display: flex;
- }
+.items .foods {
+    height: 25%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+.items .foods .foods-info {
+    width: 30rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.items .foods .foods-info .foods-info-img {
+    display: flex;
+    align-items: center;
+}
+
+.items .foods .foods-info .foods-info-img img {
+    width: 10rem;
+    height: 10rem;
+}
+
+
+.items .foods .foods-info .foods-info-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.items .foods .foods-info .foods-info-details p:first-child {
+    font-size: 1.74rem;
+    font-weight: bold;
+}
+
+.items .foods .foods-info .foods-info-details p:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.items .foods .foods-info .foods-info-details-number {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* background: blue; */
+}
+
+.items .foods .foods-info .foods-info-details-number span {
+    font-size: 3rem;
+}
+
+.items .foods .foods-info .foods-info-details-number .foods-info-details-number-add {
+    height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.5rem;
+}
+
+.items .foods .foods-info .foods-info-details-number .foods-info-details-number-add a i {
+    color: #e94e3e;
+}
+
+.items .foods .foods-price {
+    padding-left: 3rem;
+}
+
+.items .foods .foods-price div {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.items .foods .foods-price div span {
+    font-size: 3rem;
+    font-weight: bold;
+}
