@@ -114,8 +114,9 @@ li {
     /* background: blue; */
 }
 
-.items .foods .foods-info .foods-info-details-number span {
-    font-size: 3rem;
+.items .foods .foods-info .foods-info-details-number span  {
+    font-size: 2rem;
+    text-align: left;
 }
 
 .items .foods .foods-info .foods-info-details-number .foods-info-details-number-add {
@@ -131,15 +132,17 @@ li {
 
 .items .foods .foods-info .foods-info-details-number .foods-info-details-number-add a:nth-child(2) {
     height: .8rem;
-    margin-top: .2rem;
+    margin-top: .7rem;
 }
 
 .items .foods .foods-info .foods-info-details-number .foods-info-details-number-add a i {
+    font-size: 1.5rem;
     color: #e94e3e;
 }
 
 .items .foods .foods-price {
     padding-left: 3rem;
+    padding-bottom: 1rem;
 }
 
 .items .foods .foods-price div {
