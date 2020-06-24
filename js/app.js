@@ -31,7 +31,7 @@ const foodStorage = [{
 const discount = {
     bronze: 20000,
     silver: 40000,
-    gold: 5 / 100
+    gold: 50000
 }
 
 
