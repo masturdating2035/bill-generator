@@ -5,28 +5,34 @@ const foodStorage = [{
     number: 0,
     price: 0,
 },
-    {
-        id: 2,
-        name: 'قیمه با عدسی',
-        fee: 20000,
-        number: 0,
-        price: 0
-    },
-    {
-        id: 3,
-        name: 'قیمه نذری محرم',
-        fee: 30000,
-        number: 0,
-        price: 0
-    },
-    {
-        id: 4,
-        name: 'قیمه ننه بزرگم',
-        fee: 40000,
-        number: 0,
-        price: 0
-    }
+{
+    id: 2,
+    name: 'قیمه با عدسی',
+    fee: 20000,
+    number: 0,
+    price: 0
+},
+{
+    id: 3,
+    name: 'قیمه نذری محرم',
+    fee: 30000,
+    number: 0,
+    price: 0
+},
+{
+    id: 4,
+    name: 'قیمه ننه بزرگم',
+    fee: 40000,
+    number: 0,
+    price: 0
+}
 ]
+
+const discount = {
+    bronze: 20000,
+    silver: 40000,
+    gold: 5 / 100
+}
 
 
 const increase = (id) => {
@@ -94,7 +100,7 @@ const billGenerator = (foods) => {
     </div>
 
     <div class="d-flex justify-content-between">
-        <span>حق سرویس و کارمزد</span><span>${(sumOrder(foods) * 2.5)/100}<span> تومان</span></span>
+        <span>حق سرویس و کارمزد</span><span>${(sumOrder(foods) * 2.5) / 100}<span> تومان</span></span>
     </div>
 
     <div class="d-flex justify-content-between">
