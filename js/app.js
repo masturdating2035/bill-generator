@@ -5,33 +5,56 @@ const foodStorage = [{
     number: 0,
     price: 0,
 },
-{
-    id: 2,
-    name: 'قیمه با عدسی',
-    fee: 20000,
-    number: 0,
-    price: 0
-},
-{
-    id: 3,
-    name: 'قیمه نذری محرم',
-    fee: 30000,
-    number: 0,
-    price: 0
-},
-{
-    id: 4,
-    name: 'قیمه ننه بزرگم',
-    fee: 40000,
-    number: 0,
-    price: 0
-}
+    {
+        id: 2,
+        name: 'قیمه با عدسی',
+        fee: 20000,
+        number: 0,
+        price: 0
+    },
+    {
+        id: 3,
+        name: 'قیمه نذری محرم',
+        fee: 30000,
+        number: 0,
+        price: 0
+    },
+    {
+        id: 4,
+        name: 'قیمه ننه بزرگم',
+        fee: 40000,
+        number: 0,
+        price: 0
+    }
 ]
 
 const discount = {
     bronze: 20000,
     silver: 40000,
     gold: 50000
+}
+
+function discountPrice(discount) {
+
+    for (const dis in discount) {
+        if (dis !== $('#discountBtn').siblings().val()) {
+            $('#discount').html(discount[dis])
+
+        } else {
+            $('#discount').html(0)
+            $('#discountBtn').siblings().css({"background": "rgba(231, 76, 60, 0.18)", "border": "1px solid #e74c3c"})
+            $('#discountBtn').siblings().val("Wrong Code")
+            $('#discountBtn').siblings().prop("disabled", true);
+
+            setTimeout(function () {
+                $('#discountBtn').siblings().css({"background": "white", "border": ".12rem solid #e67e22;"})
+                $('#discountBtn').siblings().prop("disabled", false);
+                $('#discountBtn').siblings().val("")
+            }, 2000);
+
+        }
+    }
+
 }
 
 
@@ -104,7 +127,7 @@ const billGenerator = (foods) => {
     </div>
 
     <div class="d-flex justify-content-between">
-        <span>تخفیف</span><span>۳۴/۰۰۰<span> تومان</span></span>
+        <span>تخفیف</span><span id="discount">0<span> تومان</span></span>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -115,7 +138,7 @@ const billGenerator = (foods) => {
     <div class="order-left">
     <div class="order-left-discount">
         <input type="text" placeholder="کد تخفیف">
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-plus" id="discountBtn" onclick="discountPrice(discount)"></i>
     </div>
 
     <button class="order-left-reg">ثبت سفارش</button>
@@ -124,7 +147,6 @@ const billGenerator = (foods) => {
 }
 
 billGenerator(foodStorage)
-
 
 
 
