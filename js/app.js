@@ -29,28 +29,25 @@ const foodStorage = [{
 ]
 
 const discount = {
-    bronze: 20000,
-    silver: 40000,
-    gold: 50000
+    bronze: (2 / 100),
+    silver: (4 / 100),
+    gold: (5 / 100)
 }
 
 function discountPrice(dis) {
     for (let i in Object.keys(dis)) {
-
         if (Object.keys(dis)[i] == $('#discountBtn').siblings().val()) {
-            console.log(Object.keys(dis)[i])
             $('#discountBtn').siblings().css({
                 "background": "rgba(46, 204, 113, 0.18)",
                 "border": ".12rem solid #e67e22;"
             })
-            $('#discount').html(Object.values(dis)[i])
-            console.log(Object.values(dis)[i])
+            $('#discount').html(Object.values(dis)[i] + " درصد")
             setTimeout(function () {
                 $('#discountBtn').siblings().val("")
             }, 2000);
             break;
         } else {
-            $('#discount').html(0)
+            $('#discount').html(0 + " درصد")
             $('#discountBtn').siblings().css({"background": "rgba(231, 76, 60, 0.18)", "border": "1px solid #e74c3c"})
 
             $('#discountBtn').siblings().prop("disabled", true);
@@ -58,12 +55,19 @@ function discountPrice(dis) {
             setTimeout(function () {
                 $('#discountBtn').siblings().css({"background": "white", "border": ".12rem solid #e67e22;"})
                 $('#discountBtn').siblings().prop("disabled", false);
-                // $('#discountBtn').siblings().val("")
+                $('#discountBtn').siblings().val("")
             }, 2000);
 
         }
     }
 
+}
+
+function submitOrder() {
+    let sum;
+    sum = (parseInt($('#sumOrder').text()) + parseInt($('#wageOrder').text())) * parseFloat($('#discount').text())
+    sum = (parseInt($('#sumOrder').text()) + parseInt($('#wageOrder').text())) - sum
+    $('#finalPrice').text(sum + " تومان")
 }
 
 
@@ -128,19 +132,19 @@ const billGenerator = (foods) => {
     $('#order').append(`
     <div class="order-right">
     <div class="d-flex justify-content-between">
-        <span>جمع کل سفارشات</span><span>${sumOrder(foods)}<span> تومان</span></span>
+        <span>جمع کل سفارشات</span><span id="sumOrder">${sumOrder(foods)}<span> تومان</span></span>
     </div>
 
     <div class="d-flex justify-content-between">
-        <span>حق سرویس و کارمزد</span><span>${(sumOrder(foods) * 2.5) / 100}<span> تومان</span></span>
+        <span>حق سرویس و کارمزد</span><span id="wageOrder">${(sumOrder(foods) * 2.5) / 100}<span> تومان</span></span>
     </div>
 
     <div class="d-flex justify-content-between">
-        <span>تخفیف</span><span id="discount">0<span> تومان</span></span>
+        <span>تخفیف</span><span id="discount">0<span> درصد</span></span>
     </div>
 
     <div class="d-flex justify-content-center">
-        <span>۸۹۴/۴۵۰<span> تومان</span></span>
+        <span id="finalPrice">0<span> تومان</span></span>
     </div>
     </div>
 
@@ -150,7 +154,7 @@ const billGenerator = (foods) => {
         <i class="fas fa-plus" id="discountBtn" onclick="discountPrice(discount)"></i>
     </div>
 
-    <button class="order-left-reg">ثبت سفارش</button>
+    <button class="order-left-reg" id="regOrder" onclick="submitOrder()">ثبت سفارش</button>
     </div>
     `)
 }
