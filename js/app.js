@@ -34,22 +34,31 @@ const discount = {
     gold: 50000
 }
 
-function discountPrice(discount) {
+function discountPrice(dis) {
+    for (let i in Object.keys(dis)) {
 
-    for (const dis in discount) {
-        if (dis !== $('#discountBtn').siblings().val()) {
-            $('#discount').html(discount[dis])
-
+        if (Object.keys(dis)[i] == $('#discountBtn').siblings().val()) {
+            console.log(Object.keys(dis)[i])
+            $('#discountBtn').siblings().css({
+                "background": "rgba(46, 204, 113, 0.18)",
+                "border": ".12rem solid #e67e22;"
+            })
+            $('#discount').html(Object.values(dis)[i])
+            console.log(Object.values(dis)[i])
+            setTimeout(function () {
+                $('#discountBtn').siblings().val("")
+            }, 2000);
+            break;
         } else {
             $('#discount').html(0)
             $('#discountBtn').siblings().css({"background": "rgba(231, 76, 60, 0.18)", "border": "1px solid #e74c3c"})
-            $('#discountBtn').siblings().val("Wrong Code")
+
             $('#discountBtn').siblings().prop("disabled", true);
 
             setTimeout(function () {
                 $('#discountBtn').siblings().css({"background": "white", "border": ".12rem solid #e67e22;"})
                 $('#discountBtn').siblings().prop("disabled", false);
-                $('#discountBtn').siblings().val("")
+                // $('#discountBtn').siblings().val("")
             }, 2000);
 
         }
