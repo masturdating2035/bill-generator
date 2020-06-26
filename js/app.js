@@ -34,6 +34,11 @@ const discount = {
     gold: (5 / 100)
 }
 
+function separateNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1/')
+}
+
+
 function discountPrice(dis) {
     for (let i in Object.keys(dis)) {
         if (Object.keys(dis)[i] == $('#discountBtn').siblings().val()) {
@@ -67,7 +72,7 @@ function submitOrder() {
     let sum;
     sum = (parseInt($('#sumOrder').text()) + parseInt($('#wageOrder').text())) * parseFloat($('#discount').text())
     sum = (parseInt($('#sumOrder').text()) + parseInt($('#wageOrder').text())) - sum
-    $('#finalPrice').text(sum + " تومان")
+    $('#finalPrice').text(separateNumber(sum) + " تومان")
 }
 
 
@@ -110,7 +115,7 @@ const billGenerator = (foods) => {
 
        <div class="foods-info-details">
            <p>${food.name}</p>
-           <p><span class="foodFee">${food.fee}</span> تومان</p>
+           <p><span class="foodFee">${separateNumber(food.fee)}</span> تومان</p>
            <div class="foods-info-details-number">
                <span class="foodCount">${food.number}</span>
                <div class="foods-info-details-number-add">
@@ -122,7 +127,7 @@ const billGenerator = (foods) => {
    </div> 
 
    <div class="foods-price">
-       <div><span class="foodPrice">${food.price}</span> تومان</div>
+       <div><span class="foodPrice">${separateNumber(food.price)}</span> تومان</div>
    </div>
 </div>
 <hr>
