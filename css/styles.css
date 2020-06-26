@@ -38,10 +38,10 @@ li {
  **************************/
 .wrapper {
     width: 60rem;
-    height: 75rem;
+    height: 98vh;
     border: .5rem solid rgba(241, 196, 15, 0.5);
     border-radius: 3rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 1rem 2rem;
 }
 
