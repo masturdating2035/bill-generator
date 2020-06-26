@@ -3,7 +3,7 @@
  **************************/
 @font-face {
     font-family: yekan;
-    src: url('../fonts/Yekan.woff') format('woff')
+    src: url('../fonts/Yekan.ttf') format('truetype')
 }
 
 
@@ -114,7 +114,7 @@ li {
     /* background: blue; */
 }
 
-.items .foods .foods-info .foods-info-details-number span  {
+.items .foods .foods-info .foods-info-details-number span {
     font-size: 2rem;
     text-align: left;
 }
